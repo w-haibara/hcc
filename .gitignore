@@ -1,3 +1,8 @@
+*~
+tmp.*
+a.out
+hcc
+
 # Prerequisites
 *.d
 
