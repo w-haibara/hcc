@@ -1,9 +1,16 @@
-FLAGS=-Wall -Wextra -std=c11 -g -static
+CFLAGS=-Wall -Wextra -std=c11 -g -static
+#CFLAGS= -Wall -std=c11 -g -static
 
-hcc: hcc.c
+SRCS=$(wildcard *.c)
+OBJS=$(SRCS:.c=.o)
+
+hcc: $(OBJS)
+	$(CC) -o hcc $(OBJS) $(LDFLAGS)
+
+$(OBJS): hcc.h
 
 test: hcc
-	./test.sh
+	 ./test.sh
 
 clean:
 	rm -f hcc *.o *~ tmp*
